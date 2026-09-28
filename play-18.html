@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#eff0d5" />
+  <title>王小爸早餐店</title>
+  <link rel="stylesheet" href="style.35ed27f9809c.css" />
+</head>
+<body>
+  <main id="kitchen">
+    <div class="tiles" aria-hidden="true"></div>
+    <div class="counter" aria-hidden="true"></div>
+    <header>
+      <div class="top-actions"><button id="soundButton" class="icon-button" aria-label="关闭音乐和音效" aria-pressed="false">♫</button><button id="settingsButton" class="icon-button" aria-label="打开操作设置">⚙</button></div>
+    </header>
+    <canvas id="scene" aria-label="双手握住铁锅，倾斜手机或在锅面拖动来摊开面糊"></canvas>
+
+    <canvas id="handsScene" aria-hidden="true"></canvas>
+    <div id="serviceActions"><button id="viewGuests">照顾顾客</button></div><button id="kettleButton" aria-label="倒豆浆" class="ingredient"><span>倒豆浆</span></button><div id="ingredients"><button id="scallionButton" aria-label="葱花" class="ingredient" disabled><span id="scallionLabel">葱花</span></button><button id="cilantroButton" aria-label="香菜" class="ingredient" disabled><span id="cilantroLabel">香菜</span></button><button id="sauceButton" aria-label="面酱" class="ingredient" disabled><span id="sauceLabel">面酱</span></button><button id="chiliButton" aria-label="辣酱" class="ingredient" disabled></button><button id="crispButton" aria-label="薄脆" class="ingredient" disabled><span>薄脆</span></button></div>
+    <div id="hint" class="hint" role="status">准备好，端平你的小铁锅。</div>
+    <button id="stoveKnob" class="stove-knob" aria-label="关闭炉火" title="轻点旋钮开关炉火"></button>
+    <footer>
+      <div class="tools" id="basicTools"><button id="pourButton" class="tool primary" disabled><span class="tool-symbol">◡</span><span>倒面糊</span></button><button id="serveButton" class="tool" disabled><span class="tool-symbol">⌁</span><span>关火加料</span></button></div>
+      <div id="assemblyTools" class="tools hidden"><button id="nextStep" class="tool primary"><span id="nextLabel">刷好了，选小料</span><small id="nextHelp"></small></button></div><div class="heat-control" id="heatControl"><span class="flame" aria-hidden="true">♨</span><div class="heat-steps"><div class="heat-labels" aria-hidden="true"><span>关火</span><span>小火</span><span class="selected">中火</span><span>大火</span></div><input id="heat" type="range" min="0" max="3" step="1" value="2" aria-label="调节火力" aria-valuetext="中火" /></div></div>
+    </footer>
+    <div id="intro" class="veil">
+      <svg class="intro-food breakfast-wrap" viewBox="0 0 200 260" aria-hidden="true">
+        <defs><linearGradient id="crust" x2="1" y2=".7"><stop stop-color="#ffe5a0"/><stop offset=".55" stop-color="#eabb65"/><stop offset="1" stop-color="#c8873d"/></linearGradient><linearGradient id="paper" x2="1" y2="1"><stop stop-color="#fffbee"/><stop offset="1" stop-color="#ddc9a3"/></linearGradient></defs>
+        <ellipse cx="100" cy="241" rx="65" ry="9" fill="#76633c" opacity=".16"/>
+        <g transform="rotate(-12 100 130)"><path d="M45 77Q34 38 60 27Q103 12 147 35Q169 44 160 83L146 211Q98 235 50 210Z" fill="url(#crust)" stroke="#c8924d" stroke-width="2"/>
+        <ellipse cx="104" cy="46" rx="53" ry="23" fill="#97612f"/><path d="M53 43l15-13 15 11 14-13 16 12 14-9 24 15-12 16-23-6-17 9-15-9-17 4Z" fill="#6f993d"/>
+        <path d="M70 39l22-8 12 12-17 13Zm40 2 24-2 11 10-20 8Z" fill="#f7d176"/>
+        <path d="M48 65Q105 88 159 66L147 118Q99 138 47 116Z" fill="url(#crust)"/>
+        <g fill="#b38140" opacity=".5"><ellipse cx="64" cy="84" rx="5" ry="3"/><ellipse cx="128" cy="97" rx="7" ry="4"/><ellipse cx="95" cy="74" rx="4" ry="2"/></g>
+        <path d="M44 120Q91 143 155 119L145 216Q99 236 50 215Z" fill="url(#paper)"/><path d="m49 141 98 60M52 159l94 59" stroke="#dba097" stroke-width="5" opacity=".65"/>
+        <ellipse cx="77" cy="164" rx="4" ry="6" fill="#594132"/><ellipse cx="121" cy="164" rx="4" ry="6" fill="#594132"/><path d="M89 178q11 13 21 0" fill="none" stroke="#594132" stroke-width="3" stroke-linecap="round"/><ellipse cx="63" cy="176" rx="10" ry="6" fill="#da8c77" opacity=".55"/><ellipse cx="136" cy="176" rx="10" ry="6" fill="#da8c77" opacity=".55"/></g>
+      </svg>
+      <svg class="intro-food breakfast-soy" viewBox="0 0 200 260" aria-hidden="true">
+        <defs><linearGradient id="soyCup" x2="1" y2="0"><stop stop-color="#fff8df"/><stop offset=".48" stop-color="#fffdf1"/><stop offset="1" stop-color="#d6ceb0"/></linearGradient></defs>
+        <ellipse cx="100" cy="241" rx="65" ry="9" fill="#76633c" opacity=".16"/>
+        <g transform="rotate(9 100 130)"><path d="M127 26l-14 68" stroke="#748e67" stroke-width="12" stroke-linecap="round"/><path d="M130 28l-13 63" stroke="#adc19d" stroke-width="4"/>
+        <path d="M38 88h124l-15 133q-47 23-95 0Z" fill="url(#soyCup)" stroke="#cec2a0" stroke-width="2"/><ellipse cx="100" cy="90" rx="64" ry="18" fill="#f6eed2" stroke="#fff9e8" stroke-width="7"/><ellipse cx="100" cy="90" rx="48" ry="10" fill="#e5d6ad"/><path d="M119 68l-5 24" stroke="#748e67" stroke-width="11"/>
+        <path d="M47 148q53 20 108 0l-5 47q-50 24-98 0Z" fill="#a2b48c"/><ellipse cx="78" cy="164" rx="4" ry="6" fill="#48553b"/><ellipse cx="122" cy="164" rx="4" ry="6" fill="#48553b"/><path d="M90 177q10 13 20 0" fill="none" stroke="#48553b" stroke-width="3" stroke-linecap="round"/><ellipse cx="64" cy="176" rx="9" ry="5" fill="#dfad92"/><ellipse cx="136" cy="176" rx="9" ry="5" fill="#dfad92"/>
+        <path d="M56 104l7 34" stroke="#fff" stroke-width="7" opacity=".7" stroke-linecap="round"/></g>
+      </svg>
+      <section class="welcome card">
+        <h2>王小霸</h2><p class="wake-up">起床摆摊啦！</p>
+        <button id="motionStart" class="start">开始摆摊</button>
+      </section>
+    </div>
+    <div id="result" class="veil hidden"><section class="result-card card"><div class="eyebrow">小厨房 · 今日出品</div><h2 id="resultTitle"></h2><canvas id="plate" width="380" height="230" aria-label="本次实际制作的煎饼"></canvas><p id="resultComment"></p><div id="resultStats" class="result-stats"></div><button id="againButton" class="start">再摊一张 <span>↻</span></button></section></div>
+    <div id="settings" class="veil hidden"><section class="card settings-card"><div class="settings-heading"><h2>找到你的手感</h2><button id="closeSettings" class="icon-button" aria-label="关闭设置">×</button></div><p>双手舒适地端住手机，再校准。<br />轻微倾斜就够了，不需要猛晃。</p><label for="sensitivity">动作灵敏度 <strong id="sensitivityValue">1.0×</strong></label><input id="sensitivity" type="range" min="0.5" max="2" value="1" step="0.1" /><button id="calibrateButton" class="start">重新校准水平 · 端稳一秒</button><button id="enableMotion" class="text-button">切换为手机倾斜操作</button><button id="replayTutorial" class="text-button">重新查看教学</button><p id="modeHelp"></p><p id="sensorInfo" class="sensor-info" role="status"></p><small>触摸模式：按住锅面，向想倾斜的方向拖动。<br />设置打开时暂停加热。</small></section></div>
+    <div class="portrait-note"><span>↻</span><strong>把手机横过来</strong><p>两只手，各握住一个锅柄。</p></div>
+  </main>
+  <script type="importmap">{"imports":{"three":"./vendor/three-0.180.0/three.module.js","three/addons/":"./vendor/three-0.180.0/addons/"}}</script>
+  <script type="module" src="app.16a08dcad502.mjs"></script>
+</body>
+</html>

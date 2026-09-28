@@ -1,0 +1,1 @@
+export const voiceAssets={cheer:'./assets/voices/cheer.cd1e69005e3c.wav',yawn:'./assets/voices/yawn.cffcab0e278e.wav',spicy:'./assets/voices/spicy.072ca9de1b94.wav',good:'./assets/voices/good.d63d1a084bd1.wav',plain:'./assets/voices/plain.ea5495cc0d98.wav'};
